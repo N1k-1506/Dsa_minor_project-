@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Scanner;
 public class Test extends Employee {
 
@@ -50,7 +49,7 @@ public class Test extends Employee {
             }
         }
         for(int i=0;i<n;i++){
-            EmployeeDetails();
+            e[i].EmployeeDetails();
         }
     
     }
@@ -58,7 +57,7 @@ public class Test extends Employee {
         for(int i=0;i<e.length;i++){
             String temp=e[i].jobPosition;
             if(temp==jp){
-                EmployeeDetails();
+                e[i].EmployeeDetails();
             }
         }
     
@@ -72,7 +71,7 @@ public class Test extends Employee {
                 if(m>=d1.Month && m<=d2.Month){
                     int d=e[i].hireDate.Day;
                     if(d>=d1.Day && d<=d2.Day){
-                        EmployeeDetails();
+                        e[i].EmployeeDetails();
                     }
                 }
             }
@@ -94,14 +93,13 @@ public class Test extends Employee {
     public static void getEmployeesBySalary(Employee e[], double s1, double s2){
         for(int i=0;i<e.length;i++){
             if(e[i].salary>=s1 && e[i].salary<=s2){
-                EmployeeDetails();
+                e[i].EmployeeDetails();
             }
         }
     }
 
-    public static void EmployeeDetails(){
-        System.out.println("Name: "+name+"\nempId:"+empId+"\nSalary: "+salary+"\nJob Position: "+jobPosition+"\nHire Date: "+hireDate+"\nContact Number: "+contactNumber+"\nAddress: "+address);
-    }
+  
+}
 
         
         
