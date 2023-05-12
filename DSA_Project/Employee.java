@@ -1,4 +1,3 @@
-
 public class Employee {
 
     static String name;
@@ -8,7 +7,7 @@ public class Employee {
     static Date hireDate;
     static String contactNumber;
     static Address address;
-    
+   
     Employee(String name,int empId,double salary,String jobPosition,String contactNumber,Date hireDate,Address address){
         this.name=name;
         this.empId=empId;
@@ -19,7 +18,12 @@ public class Employee {
         this.address=address;
     
     }
-    public Employee() {
+    public void EmployeeDetails() {
+        System.out.println("Name: "+name+"\nempId:"+empId+"\nSalary: "+salary+"\nJob Position: "+jobPosition+"\nHire Date: "+hireDate+"\nContact Number: "+contactNumber+"\nAddress: "+address);
+    
+    }
+    Employee(){
+
     }
 
 
