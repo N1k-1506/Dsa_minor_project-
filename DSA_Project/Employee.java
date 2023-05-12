@@ -19,7 +19,7 @@ public class Employee {
     
     }
     public void EmployeeDetails() {
-        System.out.println("Name: "+name+"\nempId:"+empId+"\nSalary: "+salary+"\nJob Position: "+jobPosition+"\nHire Date: "+hireDate+"\nContact Number: "+contactNumber+"\nAddress: "+address);
+        System.out.println("Name: "+name+"\nempId:"+empId+"\nSalary: "+salary+"\nJob Position: "+jobPosition+"\nHire Date: "+hireDate.Day+"/"+hireDate.Month+"/"+hireDate.Year+"\nContact Number: "+contactNumber+"\nAddress: "+address.street+"\n"+address.city+"\n"+address.state);
     
     }
     Employee(){
