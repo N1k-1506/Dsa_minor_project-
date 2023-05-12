@@ -9,7 +9,7 @@ public class Test extends Employee {
         sc.nextLine();
         Employee e[]=new Employee[n];
         for(int i=0;i<n;i++){
-            System.out.println("Enter the details of "+(i+1)+" employee: \n");
+            System.out.println("\nEnter the details of "+(i+1)+" employee: \n");
             System.out.print("Enter Name: ");
             name=sc.nextLine();
             System.out.print("Enter Employee Id: ");
@@ -17,19 +17,25 @@ public class Test extends Employee {
             System.out.print("Enter Salary: ");
             salary=sc.nextDouble();
             sc.nextLine();
-            System.out.print("Enter Job Position ");
+            System.out.print("Enter Job Position: ");
             jobPosition=sc.nextLine();
-            System.out.print("Enter Contact Number (wiht Country code)):");
+            System.out.print("Enter Contact Number (with Country code)):");
             contactNumber=sc.nextLine();
-            System.out.print("Enter Date of hiring (in DD MM YYYY format)");
+            System.out.print("Enter Date of hiring (in DD MM YYYY format): ");
             hireDate=new Date(sc.nextInt(),sc.nextInt(),sc.nextInt());
             sc.nextLine();
-            System.out.print("Enter the address of the Employee (street,city,state)):");
+            System.out.println("Enter the address of the Employee (street,city,state)):");
             address=new Address(sc.nextLine(),sc.nextLine(),sc.nextLine()); 
             e[i]=new Employee(name, empId, salary, jobPosition, contactNumber, hireDate, address);
             
         }
-        sc.close();
+        Date d1=new Date(12,05,2004);
+        Date d2=new Date(11,06,2004);
+        arrangeEmployeeBySalary(e);
+        getEmployeesByHireDate(e,d1 ,d2);
+        getEmployeesByJobPosition(e, "Manager");
+        getEmployeesBySalary(e, 15000, 30000);
+        System.out.println(foreignEmployeeCount(e));
     }
     public static void arrangeEmployeeBySalary(Employee e[]){
         int n=e.length;
@@ -71,6 +77,7 @@ public class Test extends Employee {
                 }
             }
         }
+        
 
     }
     public static int foreignEmployeeCount(Employee e[]){
@@ -78,7 +85,7 @@ public class Test extends Employee {
         for(int i=0;i<e.length;i++){
             String str=e[i].contactNumber;
             char ch[]=str.toCharArray();
-            if(ch[1]=='9' && ch[2]=='1'){
+            if(ch[0]!='+' && ch[1]!='9' && ch[2]!='1'){
                 count++;
             }
         }
