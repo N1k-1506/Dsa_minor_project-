@@ -1,3 +1,4 @@
+
 public class Employee {
 
     String name;
@@ -19,22 +20,18 @@ public class Employee {
     
     }
     public void EmployeeDetails() {
-        System.out.println("\n\nName: "+this.name+"\nempId:"+this.empId+"\nSalary: "+this.salary+"\nJob Position: "+this.jobPosition+"\nHire Date: "+this.hireDate.getDay()+"/"+this.hireDate.getMonth()+"/"+this.hireDate.getYear()+"\nContact Number: "+contactNumber+"\nAddress: "+this.address.getStreet()+"\n"+this.address.getCity()+"\n"+this.address.getState());
+        System.out.println("\n\nName: "+this.name+"\nempId:"+this.empId+"\nSalary: "+this.salary+"\nJob Position: "+this.jobPosition+"\nHire Date: "+hireDate.Day+"/"+hireDate.Month+"/"+hireDate.Year+"\nContact Number: "+contactNumber+"\nAddress: \n"+this.address.getStreet()+"\n"+this.address.getCity()+"\n"+this.address.getState());
     
     }
     Employee(){
-
     }
-   
 
-
- 
 }
 
 class Date{
-    static int Day;
-    static int Month;
-    static int Year;
+    int Day;
+    int Month;
+    int Year;
     Date(int D,int M,int Y){
         Day=D;
         Month=M;
