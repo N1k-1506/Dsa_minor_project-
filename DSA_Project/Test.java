@@ -60,8 +60,17 @@ public class Test extends Employee {
         
         for(int i=0;i<e.length;i++) {
             int y = e[i].hireDate.getYear();
-            if(y >= d1.getYear() && y <= d2.getYear()) {
+            if(y >= d1.getYear() && y <= d2.getYear() && d1.getYear()<d2.getyear()) {
                 int m = e[i].hireDate.getMonth();
+                if(m >= d1.getMonth() || m <= d2.getMonth()) {
+                    int d = e[i].hireDate.getDay();
+                    if(d >= d1.getDay() && d <= d2.getDay()) {
+                        e[i].EmployeeDetails();
+                    }
+                }
+            }
+            if(y==d1.getYear && d1.getYear()==d2.getYear()){
+            int m = e[i].hireDate.getMonth();
                 if(m >= d1.getMonth() && m <= d2.getMonth()) {
                     int d = e[i].hireDate.getDay();
                     if(d >= d1.getDay() && d <= d2.getDay()) {
