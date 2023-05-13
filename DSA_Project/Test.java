@@ -10,41 +10,33 @@ public class Test extends Employee {
         for(int i=0;i<n;i++){
             System.out.println("\nEnter the details of "+(i+1)+" employee: \n");
             System.out.print("Enter Name: ");
-            name=sc.nextLine();
+            String name=sc.nextLine();
             System.out.print("Enter Employee Id: ");
-            empId=sc.nextInt();
+            int empId=sc.nextInt();
             System.out.print("Enter Salary: ");
-            salary=sc.nextDouble();
+            double salary=sc.nextDouble();
             sc.nextLine();
             System.out.print("Enter Job Position: ");
-            jobPosition=sc.nextLine();
-            System.out.print("Enter Contact Number (with Country code)):");
-            contactNumber=sc.nextLine();
-            System.out.print("Enter Date of hiring (in DD MM YYYY format): ");
-            hireDate=new Date(sc.nextInt(),sc.nextInt(),sc.nextInt());
+            String jobPosition=sc.nextLine();
+            System.out.print("Enter Contact Number ([country code-number] in this format):");
+            String contactNumber=sc.nextLine();
+            System.out.print("Enter Date of hiring (in [DD MM YYYY] format separated by space): ");
+            Date hireDate=new Date(sc.nextInt(),sc.nextInt(),sc.nextInt());
             sc.nextLine();
-            System.out.println("Enter the address of the Employee (street,city,state)):");
-            address=new Address(sc.nextLine(),sc.nextLine(),sc.nextLine()); 
+            System.out.println("Enter the address of the Employee (in 3 lines):");
+            Address address=new Address(sc.nextLine(),sc.nextLine(),sc.nextLine()); 
             e[i]=new Employee(name, empId, salary, jobPosition, contactNumber, hireDate, address);
             
         }
-        Date d1=new Date(12,05,2004);
-        Date d2=new Date(11,06,2004);
-        arrangeEmployeeBySalary(e);
-        getEmployeesByHireDate(e,d1 ,d2);
-        getEmployeesByJobPosition(e, "Manager");
-        getEmployeesBySalary(e, 15000, 30000);
-        System.out.println(foreignEmployeeCount(e));
     }
     public static void arrangeEmployeeBySalary(Employee e[]){
         int n=e.length;
         for(int i=0;i<n;i++){
-            double temp=0;
-            for(int j=i;j<n;j++){
+            for(int j=i+1;j<n;j++){
                 if(e[i].salary<e[j].salary){
-                    temp=e[i].salary;
-                    e[i].salary=e[j].salary;
-                    e[j].salary=temp;
+                    Employee temp=e[i];
+                    e[i]=e[j];
+                    e[j]=temp;
                 }
             }
         }
@@ -52,11 +44,11 @@ public class Test extends Employee {
             e[i].EmployeeDetails();
         }
     
-    }
+    } 
     public static void getEmployeesByJobPosition(Employee e[], String jp){
         for(int i=0;i<e.length;i++){
             String temp=e[i].jobPosition;
-            if(temp==jp){
+            if(temp.equals(jp)){
                 e[i].EmployeeDetails();
             }
         }
@@ -64,21 +56,20 @@ public class Test extends Employee {
     }
     public static void getEmployeesByHireDate(Employee e[], Date d1, Date d2){
         
-        for(int i=0;i<e.length;i++){
-            int y=e[i].hireDate.Year;
-            if(y>=d1.Year && y<=d2.Year){
-                int m=e[i].hireDate.Month;
-                if(m>=d1.Month && m<=d2.Month){
-                    int d=e[i].hireDate.Day;
-                    if(d>=d1.Day && d<=d2.Day){
+        for(int i=0;i<e.length;i++) {
+            int y = e[i].hireDate.getYear();
+            if(y >= d1.getYear() && y <= d2.getYear()) {
+                int m = e[i].hireDate.getMonth();
+                if(m >= d1.getMonth() && m <= d2.getMonth()) {
+                    int d = e[i].hireDate.getDay();
+                    if(d >= d1.getDay() && d <= d2.getDay()) {
                         e[i].EmployeeDetails();
                     }
                 }
             }
         }
-        
-
     }
+        
     public static int foreignEmployeeCount(Employee e[]){
         int count=0;
         for(int i=0;i<e.length;i++){
@@ -96,10 +87,6 @@ public class Test extends Employee {
                 e[i].EmployeeDetails();
             }
         }
-    }
-
-  
-}
-   
+    }  
 }
 
