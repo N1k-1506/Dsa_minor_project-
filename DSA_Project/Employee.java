@@ -1,12 +1,12 @@
 public class Employee {
 
-    static String name;
-    static int empId;
-    static double salary;
-    static String jobPosition ;
-    static Date hireDate;
-    static String contactNumber;
-    static Address address;
+    String name;
+    int empId;
+    double salary;
+    String jobPosition ;
+    Date hireDate;
+    String contactNumber;
+    Address address;
    
     Employee(String name,int empId,double salary,String jobPosition,String contactNumber,Date hireDate,Address address){
         this.name=name;
@@ -19,32 +19,60 @@ public class Employee {
     
     }
     public void EmployeeDetails() {
-        System.out.println("Name: "+name+"\nempId:"+empId+"\nSalary: "+salary+"\nJob Position: "+jobPosition+"\nHire Date: "+hireDate.Day+"/"+hireDate.Month+"/"+hireDate.Year+"\nContact Number: "+contactNumber+"\nAddress: "+address.street+"\n"+address.city+"\n"+address.state);
+        System.out.println("\n\nName: "+this.name+"\nempId:"+this.empId+"\nSalary: "+this.salary+"\nJob Position: "+this.jobPosition+"\nHire Date: "+this.hireDate.getDay()+"/"+this.hireDate.getMonth()+"/"+this.hireDate.getYear()+"\nContact Number: "+contactNumber+"\nAddress: "+this.address.getStreet()+"\n"+this.address.getCity()+"\n"+this.address.getState());
     
     }
     Employee(){
 
     }
+   
 
 
  
 }
 
 class Date{
-    public static int Day,Month,Year;
-    Date(int Day,int Month,int Year){
-        this.Day=Day;
-        this.Month=Month;
-        this.Year=Year;
+    static int Day;
+    static int Month;
+    static int Year;
+    Date(int D,int M,int Y){
+        Day=D;
+        Month=M;
+        Year=Y;
+    }
+    
+    public int getYear(){
+        return Year;
+    }
+    public int getMonth(){
+        return Month;
+    }
+    public int getDay(){
+        return Day;
+    }
+    public void displayDate(){
+        System.out.print(Day+"/"+Month+"/"+Year+" ");
     }
 
 }
 class Address{
-    String street,city,state;
-    Address(String street,String city,String state){
-        this.street=street;
-        this.city=city;
-        this.state=state;
+    String street, city;
+    String state;
+    
+    Address(String st,String c,String St){
+        street=st;
+        city=c;
+        state=St;
     }
+    public String getStreet() {
+        return street;
+    }
+    public String getCity() {
+        return city;
+    }
+    public String getState() {
+        return state;
+    }
+
 
 }
