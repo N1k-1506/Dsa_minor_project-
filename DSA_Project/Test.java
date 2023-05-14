@@ -56,29 +56,29 @@ public class Test extends Employee {
         }
     
     }
-    public static void getEmployeesByHireDate(Employee e[], Date d1, Date d2){
-        
-        for(int i=0;i<e.length;i++) {
-            int y = e[i].hireDate.getYear();
-            if(y >= d1.getYear() && y <= d2.getYear() && d1.getYear()<d2.getyear()) {
-                int m = e[i].hireDate.getMonth();
-                if(m >= d1.getMonth() || m <= d2.getMonth()) {
-                    int d = e[i].hireDate.getDay();
-                    if(d >= d1.getDay() && d <= d2.getDay()) {
-                        e[i].EmployeeDetails();
-                    }
-                }
-            }
-            if(y==d1.getYear && d1.getYear()==d2.getYear()){
-            int m = e[i].hireDate.getMonth();
-                if(m >= d1.getMonth() && m <= d2.getMonth()) {
-                    int d = e[i].hireDate.getDay();
-                    if(d >= d1.getDay() && d <= d2.getDay()) {
-                        e[i].EmployeeDetails();
-                    }
-                }
+public static void getEmployeesByHireDate(Employee[] e, Date d1, Date d2) {
+        for (int i = 0; i < e.length; i++) {
+            if (isBetween(e[i].hireDate, d1, d2)) {
+                e[i].EmployeeDetails();
             }
         }
+    }
+    
+    
+    
+    public static boolean isBetween(Date hireDate, Date after, Date before) {
+        if (hireDate.year > after.year && hireDate.year < before.year) {
+            return true;
+        } else if (hireDate.year == after.year && hireDate.month > after.month) {
+            return true;
+        } else if (hireDate.year == after.year && hireDate.month == after.month && hireDate.day >= after.day) {
+            return true;
+        } else if (hireDate.year == before.year && hireDate.month < before.month) {
+            return true;
+        } else if (hireDate.year == before.year && hireDate.month == before.month && hireDate.day <= before.day) {
+            return true;
+        }
+        return false;
     }
         
     public static int foreignEmployeeCount(Employee e[]) {
